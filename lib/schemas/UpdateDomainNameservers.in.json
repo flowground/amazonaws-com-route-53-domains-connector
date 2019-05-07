@@ -1,0 +1,87 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "<p>Replaces the current set of name servers for the domain with the specified set of name servers. If you use Amazon Route 53 as your DNS service, specify the four name servers in the delegation set for the hosted zone for the domain.</p> <p>If successful, this operation returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email. </p>",
+            "properties": {
+                "DomainName": {
+                    "description": "The name of the domain that you want to change name servers for.",
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "FIAuthKey": {
+                    "description": "The authorization key for .fi domains",
+                    "type": "string"
+                },
+                "Nameservers": {
+                    "description": "A list of new name servers for the domain.",
+                    "items": {
+                        "description": "Nameserver includes the following elements.",
+                        "properties": {
+                            "GlueIps": {
+                                "description": "<p>Glue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com.</p> <p>Constraints: The list can contain only one IPv4 and one IPv6 address.</p>",
+                                "items": {
+                                    "maxLength": 45,
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "Name": {
+                                "description": "<p>The fully qualified host name of the name server.</p> <p>Constraint: Maximum 255 characters</p>",
+                                "maxLength": 255,
+                                "pattern": "[a-zA-Z0-9_\\-.]*",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "Name"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "DomainName",
+                "Nameservers"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,66 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A <code>RenewDomain</code> request includes the number of years that you want to renew for and the current expiration year.",
+            "properties": {
+                "CurrentExpiryYear": {
+                    "description": "The year when the registration for the domain is set to expire. This value must match the current expiration date for the domain.",
+                    "type": "integer"
+                },
+                "DomainName": {
+                    "description": "The name of the domain that you want to renew.",
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "DurationInYears": {
+                    "description": "<p>The number of years that you want to renew the domain for. The maximum number of years depends on the top-level domain. For the range of valid values for your domain, see <a href=\"http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html\">Domains that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer Guide</i>.</p> <p>Default: 1</p>",
+                    "maximum": 10,
+                    "minimum": 1,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "DomainName",
+                "CurrentExpiryYear"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

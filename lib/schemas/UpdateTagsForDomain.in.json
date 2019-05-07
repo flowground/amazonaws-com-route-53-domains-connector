@@ -1,0 +1,73 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The UpdateTagsForDomainRequest includes the following elements.",
+            "properties": {
+                "DomainName": {
+                    "description": "The domain for which you want to add or update tags.",
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "TagsToUpdate": {
+                    "description": "A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.",
+                    "items": {
+                        "description": "Each tag includes the following elements.",
+                        "properties": {
+                            "Key": {
+                                "description": "<p>The key (name) of a tag.</p> <p>Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-@\"</p> <p>Constraints: Each key can be 1-128 characters long.</p>",
+                                "type": "string"
+                            },
+                            "Value": {
+                                "description": "<p>The value of a tag.</p> <p>Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-@\"</p> <p>Constraints: Each value can be 0-256 characters long.</p>",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "DomainName"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
